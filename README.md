@@ -1,0 +1,2 @@
+# metabolomics_feature_selection_workflow
+Snakemake pipeline containing a feature selection workflow
