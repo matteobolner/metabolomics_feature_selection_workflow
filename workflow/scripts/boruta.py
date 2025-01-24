@@ -61,9 +61,9 @@ with Pool(
     processes=thread_number,
 ) as p:
     results = list(
-        tqdm(
-            p.starmap(run_boruta, [(dataset, i) for i in random_states]),
-            total=len(random_states),
+        p.starmap(
+            run_boruta,
+            tqdm([(dataset, i) for i in random_states], total=len(random_states)),
         )
     )
 
@@ -89,10 +89,7 @@ with Pool(
     processes=len(random_states),
 ) as p:
     cv_results = list(
-        tqdm(
-            p.starmap(run_boruta, cv_combinations),
-            total=len(random_states),
-        )
+        p.starmap(run_boruta, tqdm(cv_combinations, total=len(cv_combinations))),
     )
 
 long_df_CV, summary_CV = merge_boruta_results(cv_results)
