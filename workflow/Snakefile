@@ -1,0 +1,10 @@
+rule boruta:
+    input:
+         dataset=config["input_dataset"]
+    output:
+        long_df="long_df.tsv",
+        summary="summary.tsv",
+    threads:
+        5
+    script:
+        "workflow/scripts/boruta.py"

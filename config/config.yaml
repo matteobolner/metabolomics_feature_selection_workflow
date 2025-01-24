@@ -1,0 +1,15 @@
+#DATASET
+input_dataset: "resources/test_dataset_fecal.xlsx"
+sample_id_column: "SAMPLE NAME"
+metabolite_id_column: "CHEMICAL ID"
+sample_metadata_sheet: "Sample Meta Data"
+chemical_annotation_sheet: "Chemical Annotation"
+data_sheet: "Data"
+
+
+#FEATURE SELECTION
+group_column: "GROUP NAME"
+group_name: "Compared groups"
+feature_selection_seeds: [10,20,30,40,50]
+boruta_method: "classifier" # alternative is regressor
+CV_method: "stratified_kfold" # alternative is LOO
