@@ -73,7 +73,7 @@ long_df, summary = merge_boruta_results(results)
 if snakemake.config["CV_method"] == "stratified_kfold":
     cv_datasets = dataset.fs.stratified_kfold(
         n_splits=snakemake.config["CV_folds_number"],
-        stratification_column=snakemake.config["cv_stratification_column"],
+        stratification_column=snakemake.config["CV_stratification_column"],
     )["training_set"].values()
 elif snakemake.config["CV_method"] == "LOO":
     cv_datasets = [dataset.ops.drop(what="samples", ids=[i]) for i in dataset.samples]
